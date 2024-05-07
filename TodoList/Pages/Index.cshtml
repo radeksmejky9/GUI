@@ -1,10 +1,41 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "TodoList";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container text-center">
+    <div class="d-flex justify-content-center my-4">
+        <h1 class="display-4 px-2">TodoList</h1>
+        <button class="btn btn-primary rounded-circle my-3" style="width:50px; height:50px">+</button>
+    </div>
+    <form id="todolist" class="col-6 container">
+        <div class="row">
+            <div class="form-group col">
+                <label>Task</label>
+                <input type="text" class="form-control" id="inputText">
+            </div>
+            <div class="form-group col">
+                <label>Deadline</label>
+                <input type="date" class="form-control" id="inputText">
+            </div>
+        </div>
+    </form>
+
+    <form id="content" class="my-5 container">
+        @for (var i = 10; i < 21; i++)
+        {
+            <div class="row border m-3">
+                <div class="col my-3">
+                    <div class="">asdkajsdljads</div>
+                </div>
+                <div class="col my-3">
+                    <input class="btn btn-outline-primary" type="submit" value="&#x2714;" />
+                </div>
+            </div>
+        }
+    </form>
 </div>
+
+
+
