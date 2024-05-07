@@ -1,0 +1,21 @@
+# ASP.NET Core
+.vs/
+bin/
+obj/
+
+# Visual Studio files
+*.user
+*.suo
+*.cache
+*.dll
+*.pdb
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# NuGet packages
+*.nuget.props
+*.paket.props
+*.paket.targets
+*.lock.json
