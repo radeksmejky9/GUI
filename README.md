@@ -51,21 +51,22 @@ Využijte následující bloky kódu:
   
 
 ```csharp
-//TodoList\Models\ToDoElement.cs
+//TodoList\Models\TaskItemModel.cs
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace TodoList.Models
 {
-    public class ToDoElement
+    public class TaskItemModel
     {
         [Key]
         public int Id { get; set; }
         [DisplayName("Task Text")]
+        [StringLength(30, MinimumLength = 3)]
         [Required]
         public string Text { get; set; }
         [Required]
-        public DateTime Deadline { get; set; }
+        public DateTime Deadline { get; set; } = DateTime.Now;
         [Required]
         [DefaultValue(0)]
         public byte Finished { get; set; }
@@ -80,17 +81,18 @@ namespace TodoList.Models
 
 
 ```csharp
-//TodoList\Models\ToDoContext.cs
+//TodoList\Models\TaskContext.cs
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using TodoList.Models;
 
-public class ToDoContext : DbContext
+public class TaskContext : DbContext
 {
-    public DbSet<ToDoElement> ToDoElements { set; get; }
+    public DbSet<TaskItemModel> TaskItems { set; get; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseSqlite(@"Data Source=..\Demo.db");
+
 }
 ```
 
@@ -103,7 +105,7 @@ public class ToDoContext : DbContext
 
 ```csharp
 //TodoList\Program.cs
-builder.Services.AddDbContext<ToDoContext>();
+builder.Services.AddDbContext<TaskContext>();
 ```
 
 </details>
