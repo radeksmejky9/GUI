@@ -87,9 +87,7 @@
 - Vytvořte tabulku s `<table class="table">`
   - Zobrazujte `Deadline`, `Text`, případně i tlačítka pro úpravu a dokončení úkolů.
  
-<details>
-<summary>Napojení na databázi</summary>
-  
+## Napojení na databázi
 ```csharp
 //TodoList\Models\IndexModel.cshtml.cs
 public bool DisplayAddTask { get; private set; } = false;
@@ -112,7 +110,6 @@ public IActionResult OnPostAddElement()
      taskItems.AddRange(items);
  }
 ```
-</details>
 
 ## Úkol 3
 - Obarvěte text `Deadline` podle počtu zbývajících dní.
