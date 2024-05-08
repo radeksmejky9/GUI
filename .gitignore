@@ -19,3 +19,4 @@ Thumbs.db
 *.paket.props
 *.paket.targets
 *.lock.json
+Demo.db

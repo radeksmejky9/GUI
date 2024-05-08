@@ -41,8 +41,7 @@
     <div class="border rounded">
     @foreach (var task in Model.taskItems)
     {
-        var taskModel = new _TaskPartialModel(task);
-        await Html.RenderPartialAsync("_TaskPartial", taskModel);
+        await Html.RenderPartialAsync("_TaskPartial", task);
     }
     </div>
 </div>
