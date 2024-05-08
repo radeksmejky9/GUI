@@ -39,7 +39,7 @@
 - **Testování spuštění projektu**
   - Ověření funkčnosti základní konfigurace.
 ## Tvorba základu aplikace
-Použijte následující šablony.
+Použijte následující šablony:
 
 <details>
 <summary>Základní HTML formulář</summary>
