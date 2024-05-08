@@ -86,8 +86,7 @@ namespace TodoList.Models
 <details>
 
 <summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\MemoryDbContext.cs`</summary>
-  
-Zakomponování InMemory databáze
+
 
 
 ```csharp
