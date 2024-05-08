@@ -43,6 +43,14 @@
 - **Testování spuštění projektu**
   - Ověření funkčnosti základní konfigurace
 
+Pokud vám vše funguje, můžete se vrhnout na Úkol 1
+
+## Úkol 1
+- `TodoList\Index.cshtml`
+- Smažte všechen html obsah
+- Vytvořte si jednoduchý html form s údaji v databázi (Text - text, Deadline - date)
+- Lze využívat bootstrap prvky v základu
+
 ## Tvorba základu aplikace
 Využijte následující bloky kódu:
 
@@ -62,7 +70,6 @@ namespace TodoList.Models
         [Key]
         public int Id { get; set; }
         [DisplayName("Task Text")]
-        [StringLength(30, MinimumLength = 3)]
         [Required]
         public string Text { get; set; }
         [Required]
@@ -109,13 +116,16 @@ builder.Services.AddDbContext<TaskContext>();
 ```
 
 </details>
-Pokud vám vše funguje, můžete se vrhnout na `Úkol 1`
 
-## Úkol 1
-- `TodoList\Index.cshtml`
-- Smažte všechen html obsah
-- Vytvořte si jednoduchý html form s údaji v databázi (Text - text, Deadline - date)
-- Lze využívat i bootstrap prvky 
+Tools > NuGet Package Manager > Package Manager Console
+```
+Add-migration DB
+Update-database
+```
+
+## Úkol 2
+- Propojení HTML formu a 
+
 
 
 
