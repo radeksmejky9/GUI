@@ -60,30 +60,26 @@ Použijte následující šablony:
 
 
 ```csharp
-//TodoList\Models\Task.cs
+//TodoList\Models\ToDoElement.cs
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace TodoList.Models
 {
-    public class Task
+    public class ToDoElement
     {
         [Key]
         public int Id { get; set; }
-        [DisplayName("Task")]
+        [DisplayName("Task Text")]
         [Required]
-        public string TaskText { get; set; }
-        [Required]
-        [DefaultValueAttribute(1)]
-        public double TaskPriority { get; set; }
+        public string Text { get; set; }
         [Required]
         public DateTime Deadline { get; set; }
         [Required]
-        [DefaultValueAttribute(false)]
+        [DefaultValue(false)]
         public bool Finished { get; set; }
     }
 }
-
 ```
 </details>
 <details>
@@ -93,20 +89,17 @@ namespace TodoList.Models
 
 
 ```csharp
-//TodoList\Models\MemoryDbContext.cs
+//TodoList\Models\TodoContext.cs
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using TodoList.Models;
 
-namespace TodoList.Models
+public class TodoContext : DbContext
 {
-    public class MemoryDbContext : DbContext
-    {
-        public DbSet<Task> Tasks { get; set; }
+    public DbSet<ToDoElement> TodoElements { set; get; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseInMemoryDatabase("MemoryDb");
-        }
-    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder.UseSqlite(@"Data Source=..\Demo.db");
 }
 ```
 
@@ -119,7 +112,7 @@ namespace TodoList.Models
 
 ```csharp
 //TodoList\Program.cs
-builder.Services.AddDbContext<MemoryDbContext>();
+builder.Services.AddDbContext<ToDoContext>();
 ```
 
 </details>
