@@ -9,13 +9,13 @@ NuGet balíčky: Microsoft.EntityFrameworkCore a Microsoft.EntityFrameworkCore.I
 # Popis řešení
 ## Projekt\Program.cs
 Sestavovací skript pro spuštění webové aplikace a řešení dependency injection, zde budeme přidávat např. NuGet balíčky.
-## Projekt\Pages\*
+## Projekt\Pages\
 Tato složka obsahuje všechny stránky.
-### Projekt\Pages\Shared\*
+### Projekt\Pages\Shared\
 Tato složka obsahuje _Layout.cshtm do kterého budeme vypisovat jednotlivé stránky.
-## Projekt\Models\*
+## Projekt\Models\
 Tuto složku si vytvoříme sami a bude obsahovat definici databázových objektů.
-## Projekt\wwwroot\*
+## Projekt\wwwroot\
 Výchozí složka v projektu určená pro statické soubory, jako jsou CSS, JS a obrázky.
 
 
