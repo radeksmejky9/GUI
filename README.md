@@ -129,7 +129,8 @@ Update-database
 ## Úkol 2
 - Tvorba jednoduché tabulky, využijte <table class="table"> (Deadline, Text, Tlačítka pro úpravu a splnění)
 
-## Napojení na databázi
+<details>
+<summary>Napojení na databázi</summary>
 ```csharp
 //TodoList\Models\IndexModel.cshtml.cs
 public bool DisplayAddTask { get; private set; } = false;
