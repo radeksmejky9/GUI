@@ -1,6 +1,6 @@
 ﻿@page "{handler?}"
-@using TodoList.Models
 @model IndexModel
+@using TodoList.Models;
 @{
     ViewData["Title"] = "TodoList";
 }
@@ -39,12 +39,20 @@
     }
 
     <div class="border rounded">
-    @foreach (var task in Model.taskItems)
+    @{
+        var orderedTasks = Model.taskItems.OrderByDescending(x => x.Task.Deadline);
+    }
+        @foreach (var task in orderedTasks)
     {
         await Html.RenderPartialAsync("_TaskPartial", task);
     }
     </div>
 </div>
+
+
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
 
 
 

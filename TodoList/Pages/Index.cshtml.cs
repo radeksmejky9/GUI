@@ -10,7 +10,7 @@ namespace TodoList.Pages
         public bool DisplayAddTask { get; private set; } = false;
         public List<_TaskPartialModel> taskItems = new List<_TaskPartialModel>();
         [BindProperty]
-        public TaskItem NewToDoElement { get; set; }
+        public TaskItemModel NewTaskItem { get; set; }
 
         private readonly TaskContext _taskContext;
 
@@ -23,12 +23,12 @@ namespace TodoList.Pages
 
         public IActionResult OnPostAddElement()
         {
-            _taskContext.TaskItems.Add(NewToDoElement);
+            _taskContext.TaskItems.Add(NewTaskItem);
             _taskContext.SaveChanges();
             return RedirectToPage();
         }
 
-        public void OnPostAddTask()
+        public IActionResult OnPostAddTask()
         {
             if (TempData.TryGetValue("DisplayAddTask", out object? value))
             {
@@ -37,6 +37,7 @@ namespace TodoList.Pages
 
             DisplayAddTask = !DisplayAddTask;
             TempData["DisplayAddTask"] = DisplayAddTask;
+            return Page();
         }
         public IActionResult OnPostMarkAsFinished(int taskId)
         {
@@ -65,7 +66,7 @@ namespace TodoList.Pages
         }
         public IActionResult OnPostTaskEditFinished(int taskId)
         {
-            Console.WriteLine(NewToDoElement);
+            Console.WriteLine(NewTaskItem);
             var task = taskItems.Find(item => item.Task.Id == taskId);
             if (TempData.TryGetValue("IsEditing", out object? value))
             {
@@ -75,8 +76,8 @@ namespace TodoList.Pages
             task.IsEditing = !task.IsEditing;
             TempData["IsEditing"] = task.IsEditing;
 
-            task.Task.Text = NewToDoElement.Text;
-            task.Task.Deadline = NewToDoElement.Deadline;
+            task.Task.Text = NewTaskItem.Text;
+            task.Task.Deadline = NewTaskItem.Deadline;
 
             _taskContext.SaveChanges();
             return RedirectToPage();

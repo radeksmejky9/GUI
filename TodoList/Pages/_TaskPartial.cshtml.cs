@@ -6,9 +6,9 @@ namespace TodoList.Pages
 {
     public class _TaskPartialModel : PageModel
     {
-        public TaskItem Task { get; private set; }
+        public TaskItemModel Task { get; private set; }
         public bool IsEditing { get; set; } = false;
-        public _TaskPartialModel(TaskItem task)
+        public _TaskPartialModel(TaskItemModel task)
         {
             Task = task;
         }
