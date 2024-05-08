@@ -38,3 +38,11 @@
     - Přidání `Microsoft.EntityFrameworkCore.InMemory`
 - **Testování spuštění projektu**
   - Ověření funkčnosti základní konfigurace.
+## Nahrazení obsahu souboru `Projekt\Pages\Index.cshtml`
+```
+TEMPLATE TADY
+```
+## Tvorba modelu v rámci EntityFramework `Projekt\Models\Task.cs`
+```
+TEMPLATE TADY
+```
