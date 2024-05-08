@@ -2,6 +2,7 @@
 ## Lekce: ASP.NET + Razor Pages
 
 [Prezentace](https://tinyurl.com/KI-GUI-PRE)
+
 [README_EN](https://github.com/radeksmejky9/GUI/edit/main/README_EN.md)
 
 ## Příprava
