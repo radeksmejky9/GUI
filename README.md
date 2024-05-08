@@ -42,7 +42,7 @@
 - **Tvorba formuláře `Projekt\Pages\Index.cshtml`**
   - Základní html formulář s pár bootstrap prvky.
 ```
-  <div class="container text-center">
+<div class="container text-center">
     <div class="d-flex justify-content-center align-items-center my-4">
         <h1 class="display-4 px-2">TodoList</h1>
         <form method="post">
@@ -75,7 +75,7 @@
         </form>
     }
 
-    <form id="content" class="my-5 container border rounded">
+<form id="content" class="my-5 container border rounded">
         @for (var i = 1; i < 21; i += 2)
         {
             int remainingDays = Model.GetRemainingDays(i);
@@ -97,13 +97,13 @@
 </div>
 ```
   - Samozřejmě je třeba propojit hmtl a C# pomocí razor dekorátoru
-  ```
-      @page
-    @model IndexModel
-    @{
-        ViewData["Title"] = "TodoList";
-    }
-  ```
+```
+@page
+@model IndexModel
+@{
+  ViewData["Title"] = "TodoList";
+}
+```
 
 - **Tvorba modelu v rámci EntityFramework `Projekt\Models\Task.cs`**
 ```
