@@ -26,7 +26,7 @@ namespace TodoList.Pages
             return RedirectToPage();
         }
 
-        public IActionResult OnPostAddTask()
+        public void OnPostAddTask()
         {
             if (TempData.TryGetValue("DisplayAddTask", out object? value))
             {
@@ -35,8 +35,9 @@ namespace TodoList.Pages
 
             DisplayAddTask = !DisplayAddTask;
             TempData["DisplayAddTask"] = DisplayAddTask;
-            return RedirectToPage();
         }
+
+
         public IActionResult OnPostMarkAsFinished(int taskId)
         {
             var taskItem = _taskContext.TaskItems.Find(taskId);
