@@ -1,28 +1,40 @@
 # KI/GUI
-## Lekce ASP.NET + Razor Pages
+## Lekce: ASP.NET + Razor Pages
+
 [Prezentace](https://tinyurl.com/KI-GUI-PRE)
-# Příprava
-Instalace [Visual Studio 2022](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false) společně s .NET 8.0 a ASP.NET and web development.
-Tvorba projektu - ASP.NET Core Web App (Razor Pages)
-NuGet balíčky: Microsoft.EntityFrameworkCore a Microsoft.EntityFrameworkCore.InMemory
 
-# Popis řešení
-## Projekt\Program.cs
-Sestavovací skript pro spuštění webové aplikace a řešení dependency injection, zde budeme přidávat např. NuGet balíčky.
-## Projekt\Pages\
-Tato složka obsahuje všechny stránky.
-### Projekt\Pages\Shared\
-Tato složka obsahuje _Layout.cshtm do kterého budeme vypisovat jednotlivé stránky.
-## Projekt\Models\
-Tuto složku si vytvoříme sami a bude obsahovat definici databázových objektů.
-## Projekt\wwwroot\
-Výchozí složka v projektu určená pro statické soubory, jako jsou CSS, JS a obrázky.
+## Příprava
+- **Instalace [Visual Studio 2022](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)**
+  - S .NET 8.0 a ASP.NET and web development.
+- **Tvorba projektu**
+  - Typ projektu: ASP.NET Core Web App (Razor Pages)
+- **NuGet balíčky**
+  - `Microsoft.EntityFrameworkCore`
+  - `Microsoft.EntityFrameworkCore.InMemory`
 
+## Popis řešení
+### Projekt\Program.cs
+- Sestavovací skript pro spuštění webové aplikace.
+- Řešení dependency injection.
+- Přidání NuGet balíčků.
 
+### Projekt\Pages\
+- Složka obsahující všechny Razor Pages.
 
+#### Projekt\Pages\Shared\
+- Obsahuje `_Layout.cshtml` pro výpis jednotlivých stránek.
 
+### Projekt\Models\
+- Složka pro definice databázových modelů (vytváříme sami).
 
+### Projekt\wwwroot\
+- Pro statické soubory jako CSS, JS a obrázky.
 
-
-
-
+## Začátek vývoje ve Visual Studio 2022
+- **Tvorba složky `Models`**
+- **Správa NuGet balíčků**
+  - Project > Manage NuGet Packages
+    - Přidání `Microsoft.EntityFrameworkCore`
+    - Přidání `Microsoft.EntityFrameworkCore.InMemory`
+- **Testování spuštění projektu**
+  - Ověření funkčnosti základní konfigurace.
