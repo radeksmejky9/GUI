@@ -10,7 +10,8 @@
   - Typ projektu: ASP.NET Core Web App (Razor Pages)
 - **NuGet balíčky**
   - `Microsoft.EntityFrameworkCore`
-  - `Microsoft.EntityFrameworkCore.InMemory`
+  - `Microsoft.EntityFrameworkCore.Sqlite`
+  - `Microsoft.EntityFrameworkCore.Tools`
 
 ## Popis řešení
 ### TodoList\Program.cs
