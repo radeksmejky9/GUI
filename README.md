@@ -85,7 +85,7 @@ namespace TodoList.Models
 
 ```
 </details>
-</details>
+<details>
 
 <summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\MemoryDbContext.cs`</summary>
   
