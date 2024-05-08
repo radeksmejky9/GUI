@@ -24,7 +24,7 @@
 ### TodoList\Pages\
 - Složka obsahující všechny Razor Pages
 
-#### TodoList\Pages\Shared\
+### TodoList\Pages\Shared\
 - Obsahuje `_Layout.cshtml`
 
 ### TodoList\Models\
