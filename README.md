@@ -124,7 +124,6 @@ Add-migration DB
 Update-database
 ```
 
-<details>
 
 ## Úkol 2
 - Tvorba jednoduché tabulky, využijte <table class="table"> (Deadline, Text, Tlačítka pro úpravu a splnění)
@@ -156,6 +155,6 @@ public IActionResult OnPostAddElement()
 </details>
 
 ## Úkol 3
-- Obarvení textu Deadline, podle počtu zbývajících dní (doporučujeme použít (Datetime.Now-Deadline).Days)
+- Obarvení textu Deadline, podle počtu zbývajících dní
 
 
