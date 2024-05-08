@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using TodoList.Models;
 
 namespace TodoList.Pages
 {
@@ -9,15 +11,32 @@ namespace TodoList.Pages
         public string TextColor { get; private set; }
         public bool DisplayAddTask { get; private set; }
 
-        public IndexModel(ILogger<IndexModel> logger)
+
+        public List<ToDoElement> toDoElements = new List<ToDoElement>();
+        [BindProperty]
+        public ToDoElement NewToDoElement { get; set; }
+
+        private readonly ToDoContext _toDoContext;
+
+        public IndexModel(ILogger<IndexModel> logger, ToDoContext todoContext)
         {
             _logger = logger;
             TextColor = "black";
+            _toDoContext = todoContext;
         }
 
         public void OnGet()
         {
+            toDoElements = _toDoContext.ToDoElements.ToList();
         }
+
+        public IActionResult OnPostAddElement()
+        {
+            _toDoContext.ToDoElements.Add(NewToDoElement);
+            _toDoContext.SaveChanges();
+            return RedirectToPage();
+        }
+
         public int GetRemainingDays(int i)
         {
             DateTime deadlineDate = DateTime.Now.AddDays(i);
@@ -28,7 +47,8 @@ namespace TodoList.Pages
             if (DisplayAddTask)
             {
                 DisplayAddTask = false;
-            } else
+            }
+            else
             {
                 DisplayAddTask = true;
             }
