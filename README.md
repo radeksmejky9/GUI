@@ -55,7 +55,7 @@ Použijte následující šablony:
 </details>
 
 <details>
-<summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\ToDoElement.cs`</summary>
+<summary>Tvorba modelu v rámci EntityFramework</summary>
   
 
 
@@ -84,7 +84,7 @@ namespace TodoList.Models
 </details>
 <details>
 
-<summary>Vytvoření Sqlite databáze `TodoList\Models\ToDoContext.cs`</summary>
+<summary>Vytvoření Sqlite databáze</summary>
 
 
 
@@ -107,7 +107,7 @@ public class TodoContext : DbContext
 
 <details>
 
-<summary>Dependency injection v `TodoList\Program.cs`</summary>
+<summary>Dependency injection - databáze</summary>
 
 
 ```csharp
