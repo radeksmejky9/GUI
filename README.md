@@ -13,21 +13,21 @@
   - `Microsoft.EntityFrameworkCore.InMemory`
 
 ## Popis řešení
-### Projekt\Program.cs
+### TodoList\Program.cs
 - Sestavovací skript pro spuštění webové aplikace.
 - Řešení dependency injection.
 - Přidání NuGet balíčků.
 
-### Projekt\Pages\
+### TodoList\Pages\
 - Složka obsahující všechny Razor Pages.
 
-#### Projekt\Pages\Shared\
+#### TodoList\Pages\Shared\
 - Obsahuje `_Layout.cshtml` pro výpis jednotlivých stránek.
 
-### Projekt\Models\
+### TodoList\Models\
 - Složka pro definice databázových modelů (vytváříme sami).
 
-### Projekt\wwwroot\
+### TodoList\wwwroot\
 - Pro statické soubory jako CSS, JS a obrázky.
 
 ## Začátek vývoje ve Visual Studio 2022
@@ -43,28 +43,72 @@ Použijte následující šablony.
 
 <details>
 <summary>Základní HTML formulář</summary>
+
+Formulář využívá Bootstrap třídy pro stylování a layout, což zahrnuje třídy pro formulářové prvky, tlačítka a kontejnery. Bootstrap komponenty zlepšují vizuální prezentaci a usnadňují responsivní design.
+
   
 ```html
 <!-- Příklad HTML kódu s Bootstrapem -->
 ```
-  Formulář využívá Bootstrap třídy pro stylování a layout, což zahrnuje třídy pro formulářové prvky, tlačítka a kontejnery. Bootstrap komponenty zlepšují vizuální prezentaci a usnadňují responsivní design.
 </details>
 
 <details>
-<summary>Propojení HTML a C# pomocí Razor dekorátoru</summary>
-
-```razor
-<!-- Příklad Razor syntaxe v HTML kódu -->
-```
-Razor dekorátory umožňují vkládat C# kód přímo do HTML šablon, což je užitečné pro dynamické generování obsahu na webu z backendu.
-</details>
 
 <details>
-<summary>Tvorba modelu v rámci EntityFramework `Projekt\Models\Task.cs`</summary>
+<summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\Task.cs`</summary>
+  
+Model obsahuje definice vlastností odpovídajících sloupcům v databázi a může zahrnovat metody pro manipulaci s daty.
+
 
 ```csharp
-// Příklad C# kódu pro model Task
+//TodoList\Models\Task.cs
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace TodoList.Models
+{
+    public class Task
+    {
+        [Key]
+        public int Id { get; set; }
+        [DisplayName("Task")]
+        [Required]
+        public string TaskText { get; set; }
+        [Required]
+        [DefaultValueAttribute(1)]
+        public double TaskPriority { get; set; }
+        [Required]
+        public DateTime Deadline { get; set; }
+        [Required]
+        [DefaultValueAttribute(false)]
+        public bool Finished { get; set; }
+    }
+}
+
 ```
-Model obsahuje definice vlastností odpovídajících sloupcům v databázi a může zahrnovat metody pro manipulaci s daty.
+</details>
+
+<summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\MemoryDbContext.cs`</summary>
+  
+Zakomponování InMemory databáze
+
+
+```csharp
+//TodoList\Models\MemoryDbContext.cs
+using Microsoft.EntityFrameworkCore;
+
+namespace TodoList.Models
+{
+    public class MemoryDbContext : DbContext
+    {
+        public DbSet<Task> Tasks { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseInMemoryDatabase("MemoryDb");
+        }
+    }
+}
+```
 </details>
 
