@@ -127,7 +127,7 @@ Update-database
 
 
 ## Úkol 2
-- Tvorba jednoduché tabulky, využijte <table class="table"> (Deadline, Text, Tlačítka pro úpravu a splnění)
+- Tvorba jednoduché tabulky, využijte `<table class="table">` (Deadline, Text, Tlačítka pro úpravu a splnění)
 
 
 <details>
