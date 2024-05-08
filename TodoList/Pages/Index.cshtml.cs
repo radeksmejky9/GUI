@@ -11,18 +11,18 @@ namespace TodoList.Pages
         [BindProperty]
         public TaskItem NewToDoElement { get; set; }
 
-        private readonly TaskContext _toDoContext;
+        private readonly TaskContext _taskContext;
 
-        public IndexModel(TaskContext todoContext)
+        public IndexModel(TaskContext taskContext)
         {
-            _toDoContext = todoContext;
-            taskItems = _toDoContext.TaskItems.ToList();
+            _taskContext = taskContext;
+            taskItems = _taskContext.TaskItems.ToList();
         }
 
         public IActionResult OnPostAddElement()
         {
-            _toDoContext.TaskItems.Add(NewToDoElement);
-            _toDoContext.SaveChanges();
+            _taskContext.TaskItems.Add(NewToDoElement);
+            _taskContext.SaveChanges();
             return RedirectToPage();
         }
 
@@ -36,6 +36,16 @@ namespace TodoList.Pages
             DisplayAddTask = !DisplayAddTask;
             TempData["DisplayAddTask"] = DisplayAddTask;
         }
-
+        public async Task<IActionResult> OnPostMarkAsFinishedAsync(int taskId)
+        {
+            var taskItem = await _taskContext.TaskItems.FindAsync(taskId);
+            if (taskItem == null)
+            {
+                return NotFound();
+            }
+            taskItem.Finished = 1;
+            await _taskContext.SaveChangesAsync();
+            return RedirectToPage();
+        }
     }
 }

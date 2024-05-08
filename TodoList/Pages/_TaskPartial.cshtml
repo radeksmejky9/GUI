@@ -4,7 +4,7 @@
     string textColor = remainingDays > 10 ? "green" : remainingDays > 5 ? "orange" : "red";
 }
 
-<form class="row border-bottom mx-3 align-items-center">
+<form method="post" class="row border-bottom mx-3 align-items-center">
     <div id="task" class="col my-3 col">
         <div class="border-end pe-3">@Model.Task.Text</div>
     </div>
@@ -13,9 +13,11 @@
         <div style="color: @textColor">
             @Model.Task.Deadline.ToString("dd MMM yyyy")
         </div>
+        @Model.Task.Finished
     </div>
     <div id="submit" class="col my-3 col-lg-2">
         <input class="btn" type="submit" value="&#x270E;" />
-        <input class="btn" type="submit" value="&#x2714;" />
+        <input class="btn" type="submit" value="&#x2714;" asp-page-handler="MarkTaskAsFinished" />
+        <input type="hidden" name="taskId" value="@Model.Task.Id" />
     </div>
 </form>
