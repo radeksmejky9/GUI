@@ -43,31 +43,27 @@ Použijte následující šablony.
 
 <details>
 <summary>Základní HTML formulář</summary>
-Struktura HTML formuláře s využitím Bootstrapu může vypadat následovně:
-  
+  Formulář využívá Bootstrap třídy pro stylování a layout, což zahrnuje třídy pro formulářové prvky, tlačítka a kontejnery. Bootstrap komponenty zlepšují vizuální prezentaci a usnadňují responsivní design.
 ```html
 <!-- Příklad HTML kódu s Bootstrapem -->
 ```
-Formulář využívá Bootstrap třídy pro stylování a layout, což zahrnuje třídy pro formulářové prvky, tlačítka a kontejnery. Bootstrap komponenty zlepšují vizuální prezentaci a usnadňují responsivní design.
 </details>
 
 <details>
 <summary>Propojení HTML a C# pomocí Razor dekorátoru</summary>
-Příklad propojení HTML a C# kódu pomocí Razor syntaxe může vypadat takto:
+Razor dekorátory umožňují vkládat C# kód přímo do HTML šablon, což je užitečné pro dynamické generování obsahu na webu z backendu.
   
 ```razor
 <!-- Příklad Razor syntaxe v HTML kódu -->
 ```
-Razor dekorátory umožňují vkládat C# kód přímo do HTML šablon, což je užitečné pro dynamické generování obsahu na webu z backendu.
 </details>
 
 <details>
 <summary>Tvorba modelu v rámci EntityFramework `Projekt\Models\Task.cs`</summary>
-Příklad modelu `Task` v EntityFramework, který slouží pro reprezentaci úkolů v databázi, může vypadat následovně:
-  
+Model obsahuje definice vlastností odpovídajících sloupcům v databázi a může zahrnovat metody pro manipulaci s daty.
+
 ```csharp
 // Příklad C# kódu pro model Task
 ```
-Model obsahuje definice vlastností odpovídajících sloupcům v databázi a může zahrnovat metody pro manipulaci s daty.
 </details>
 
