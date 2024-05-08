@@ -1,22 +1,37 @@
-﻿@model TodoList.Pages._TaskPartialModel
-@{   
+@model TodoList.Pages._TaskPartialModel
+@{
     int remainingDays = Model.GetRemainingDays(DateTime.Now);
     string textColor = remainingDays > 10 ? "green" : remainingDays > 5 ? "orange" : "red";
 }
 
 <form method="post" class="row border-bottom mx-3 align-items-center">
     <div id="task" class="col my-3 col">
-        <div class="border-end pe-3">@Model.Task.Text</div>
+        @if (@Model.IsEditing)
+        {
+            <input type="text" class="form-control" id="inputTask" name="Text" value="@Model.Task.Text">
+        }
+        else
+        {
+            <div class="border-end pe-3">@Model.Task.Text</div>
+        }
     </div>
     <div id="deadline" class="col my-3 mx-3 col-lg-auto">
         <div class="text-secondary">Deadline:</div>
-        <div style="color: @textColor">
-            @Model.Task.Deadline.ToString("dd MMM yyyy")
-        </div>
-        @Model.Task.Finished
+        @if (@Model.IsEditing)
+        {
+            <input type="date" class="form-control" id="inputDeadline" name="Deadline" value="@Model.Task.Deadline">
+        }
+        else
+        {
+            <div style="color: @textColor">
+                @Model.Task.Deadline.ToString("dd MMM yyyy")
+            </div>
+        }
+
     </div>
     <div id="submit" class="col my-3 col-lg-2">
-        <input class="btn" type="submit" value="&#x270E;" />
+        <input id="editButton" class="btn" type="submit" value="&#x270E;" asp-page-handler="SetEditing" />
+        <input class="btn" type="submit" value="&#x2714;" asp-page-handler="MarkTaskAsFinished" />
         <input type="hidden" name="taskId" value="@Model.Task.Id" />
         <input class="btn" type="submit" value="&#x2714;" asp-page-handler="MarkAsFinished" />
     </div>

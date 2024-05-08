@@ -8,4 +8,5 @@ public class TaskContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseSqlite(@"Data Source=..\Demo.db");
+
 }
