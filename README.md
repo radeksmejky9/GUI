@@ -5,7 +5,7 @@
 
 [README_EN](https://github.com/radeksmejky9/GUI/edit/main/README_EN.md)
 
-## Příprava
+## Požadavky
 - **Instalace [Visual Studio 2022](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)**
   - `.NET 8.0` a `ASP.NET and web development`
 - **Tvorba projektu**
