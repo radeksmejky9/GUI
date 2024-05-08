@@ -155,6 +155,7 @@ public IActionResult OnPostAddElement()
      taskItems.AddRange(items);
  }
 ```
+</details>
 
 ## Úkol 3
 - Obarvěte text `Deadline` podle počtu zbývajících dní.
