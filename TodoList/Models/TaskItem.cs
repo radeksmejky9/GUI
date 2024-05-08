@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TodoList.Models
 {
-    public class ToDoElement
+    public class TaskItem
     {
         [Key]
         public int Id { get; set; }
         [DisplayName("Task Text")]
         [Required]
-        public string Text { get; set; }
+        public string Text { get; set; } = "";
         [Required]
         public DateTime Deadline { get; set; }
         [Required]

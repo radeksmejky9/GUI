@@ -1,0 +1,21 @@
+﻿@model TodoList.Pages._TaskPartialModel
+@{   
+    int remainingDays = Model.GetRemainingDays(DateTime.Now);
+    string textColor = remainingDays > 10 ? "green" : remainingDays > 5 ? "orange" : "red";
+}
+
+<form class="row border-bottom mx-3 align-items-center">
+    <div id="task" class="col my-3 col">
+        <div class="border-end pe-3">@Model.Task.Text</div>
+    </div>
+    <div id="deadline" class="col my-3 mx-3 col-lg-auto">
+        <div class="text-secondary">Deadline:</div>
+        <div style="color: @textColor">
+            @Model.Task.Deadline.ToString("dd MMM yyyy")
+        </div>
+    </div>
+    <div id="submit" class="col my-3 col-lg-2">
+        <input class="btn" type="submit" value="&#x270E;" />
+        <input class="btn" type="submit" value="&#x2714;" />
+    </div>
+</form>

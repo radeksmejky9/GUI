@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TodoList.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class DatabaseSQLITE : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "TodoElements",
+                name: "TaskItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -23,7 +23,7 @@ namespace TodoList.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TodoElements", x => x.Id);
+                    table.PrimaryKey("PK_TaskItems", x => x.Id);
                 });
         }
 
@@ -31,7 +31,7 @@ namespace TodoList.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TodoElements");
+                name: "TaskItems");
         }
     }
 }

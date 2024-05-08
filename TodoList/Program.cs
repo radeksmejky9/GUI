@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<ToDoContext>();
+builder.Services.AddDbContext<TaskContext>();
 
 var app = builder.Build();
 

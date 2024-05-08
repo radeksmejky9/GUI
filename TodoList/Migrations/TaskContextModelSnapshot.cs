@@ -8,15 +8,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace TodoList.Migrations
 {
-    [DbContext(typeof(ToDoContext))]
-    partial class TodoContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(TaskContext))]
+    partial class TaskContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
 
-            modelBuilder.Entity("TodoList.Models.ToDoElement", b =>
+            modelBuilder.Entity("TodoList.Models.TaskItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,7 @@ namespace TodoList.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TodoElements");
+                    b.ToTable("TaskItems");
                 });
 #pragma warning restore 612, 618
         }

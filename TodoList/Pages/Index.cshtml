@@ -38,25 +38,13 @@
         </form>
     }
 
-    <form id="content" class="my-5 container border rounded">
-        @foreach(ToDoElement element in Model.toDoElements)
-        {
-            int remainingDays = (DateTime.Now - element.Deadline).Days;
-            string textColor = remainingDays > 10 ? "green" : remainingDays > 5 ? "orange" : "red";
-
-            <div class="row border-bottom mx-3 align-items-center">
-                <div id="task" class="col my-3 col">
-                    <div class="border-end pe-3">@element.Text</div>
-                </div>
-                <div id="deadline" class="col my-3 mx-3 col-lg-auto" style="color: @textColor">
-                    <div>@element.Deadline</div>
-                </div>
-                <div id="submit" class="col my-3 col-lg-2">
-                    <input class="btn btn-outline-primary" type="submit" value="&#x2714;" />
-                </div>
-            </div>
-        }
-    </form>
+    <div class="border rounded">
+    @foreach (var task in Model.taskItems)
+    {
+        var taskModel = new _TaskPartialModel(task);
+        await Html.RenderPartialAsync("_TaskPartial", taskModel);
+    }
+    </div>
 </div>
 
 
