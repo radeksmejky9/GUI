@@ -49,7 +49,7 @@ Pokud vám vše funguje, můžete se vrhnout na Úkol 1
 - `TodoList\Index.cshtml`
 - Smažte všechen html obsah
 - Vytvořte si jednoduchý html form s inputy pro vkládání do databáze (Text - text, Deadline - date)
-- **POZOR** atribut name="" se musí shodovat s databazí, takže Text a Deadline
+- **POZOR** V rámci input pole se hodnota atributu name="" musí shodovat s databazí, takže Text a Deadline
 - Lze využívat bootstrap prvky v základu
 
 ## Tvorba základu aplikace
