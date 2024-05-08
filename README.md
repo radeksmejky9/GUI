@@ -43,6 +43,7 @@ Použijte následující šablony.
 
 <details>
 <summary>Základní HTML formulář</summary>
+  
 ```html
 <!-- Příklad HTML kódu s Bootstrapem -->
 ```
