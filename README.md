@@ -130,6 +130,7 @@ Update-database
 
 <details>
 <summary>Napojení na databázi</summary>
+  
 ```csharp
 //TodoList\Models\IndexModel.cshtml.cs
 public bool DisplayAddTask { get; private set; } = false;
