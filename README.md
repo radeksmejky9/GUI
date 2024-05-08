@@ -1,5 +1,6 @@
 # KI/GUI
 ## Lekce: ASP.NET + Razor Pages
+## Opora primárně neslouží k prezenční výuce, nebudeme se ji nutně držet, spíše uvádí do technologie a ukazuje základy.
 
 - [Prezentace](https://tinyurl.com/KI-GUI-PRE)
 - [README_EN on GitHub](https://github.com/radeksmejky9/GUI/edit/main/README_EN.md)
@@ -113,3 +114,5 @@ public IActionResult OnPostAddElement()
 
 ## Úkol 3
 - Obarvěte text `Deadline` podle počtu zbývajících dní.
+
+
