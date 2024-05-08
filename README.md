@@ -112,7 +112,7 @@ public class TodoContext : DbContext
 
 ```csharp
 //TodoList\Program.cs
-builder.Services.AddDbContext<ToDoContext>();
+builder.Services.AddDbContext<TodoContext>(options => options.UseSqlite(@"Data Source=..\Demo.db"));
 ```
 
 </details>
