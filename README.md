@@ -44,6 +44,7 @@ Použijte následující šablony.
 <details>
 <summary>Základní HTML formulář</summary>
   Formulář využívá Bootstrap třídy pro stylování a layout, což zahrnuje třídy pro formulářové prvky, tlačítka a kontejnery. Bootstrap komponenty zlepšují vizuální prezentaci a usnadňují responsivní design.
+  
 ```html
 <!-- Příklad HTML kódu s Bootstrapem -->
 ```
