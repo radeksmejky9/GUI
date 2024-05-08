@@ -32,25 +32,19 @@ namespace TodoList.Pages
         {
             if (TempData.TryGetValue("DisplayAddTask", out object? value))
             {
-                DisplayAddTask = value != null && (bool)value;
+                DisplayAddTask = value != null ? (bool)value : false;
             }
 
             DisplayAddTask = !DisplayAddTask;
             TempData["DisplayAddTask"] = DisplayAddTask;
             return Page();
         }
-        public IActionResult OnPostMarkAsFinished(int taskId)
+        public void OnPostMarkAsFinished(int taskId)
         {
             var taskItem = _taskContext.TaskItems.Find(taskId);
-            if (taskItem == null)
-            {
-                return NotFound();
-            }
-
             taskItem.Finished = 1;
             _taskContext.SaveChanges();
 
-            return RedirectToPage();
         }
         public void OnPostSetEditing(int taskId)
         {
@@ -66,7 +60,6 @@ namespace TodoList.Pages
         }
         public IActionResult OnPostTaskEditFinished(int taskId)
         {
-            Console.WriteLine(NewTaskItem);
             var task = taskItems.Find(item => item.Task.Id == taskId);
             if (TempData.TryGetValue("IsEditing", out object? value))
             {
@@ -81,7 +74,6 @@ namespace TodoList.Pages
 
             _taskContext.SaveChanges();
             return RedirectToPage();
-
         }
 
     }

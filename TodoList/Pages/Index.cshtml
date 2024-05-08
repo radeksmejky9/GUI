@@ -39,13 +39,14 @@
     }
 
     <div class="border rounded">
-    @{
-        var orderedTasks = Model.taskItems.OrderByDescending(x => x.Task.Deadline);
-    }
-        @foreach (var task in orderedTasks)
-    {
-        await Html.RenderPartialAsync("_TaskPartial", task);
-    }
+        @{
+            var orderedTasks = Model.taskItems.OrderBy(x => x.Task.Deadline);
+            orderedTasks = orderedTasks.OrderBy(x => x.Task.Finished);
+            foreach (var task in orderedTasks)
+            {
+                await Html.RenderPartialAsync("_TaskPartial", task);
+            }
+        }
     </div>
 </div>
 

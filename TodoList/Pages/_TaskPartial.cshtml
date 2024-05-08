@@ -4,44 +4,47 @@
     string textColor = remainingDays > 10 ? "green" : remainingDays > 5 ? "orange" : "red";
 }
 
-<form method="post" class="row border-bottom mx-3 align-items-center">
-    <div id="task" class="col my-3 col">
-        @if (@Model.IsEditing)
-        {
+<form method="post" class="row border-bottom align-items-center" style="background-color: @(Model.Task.Finished == 1 ? "lightgray" : "white")">
+    
+    @if (@Model.IsEditing)
+    {
+        <div id="task" class="col my-3 col">
             <input type="text" class="form-control" id="inputTask" name="Text" value="@Model.Task.Text">
-        }
-        else
-        {
-            <div class="border-end pe-3">@Model.Task.Text</div>
-        }
-    </div>
-    <div id="deadline" class="col my-3 mx-3 col-lg-auto">
-        <div class="text-secondary">Deadline:</div>
-        @if (@Model.IsEditing)
-        {
+        </div>
+        <div id="deadline" class="col my-3 mx-3 col-lg-auto">
+            <div class="text-secondary">Deadline:</div>
             <input type="date" class="form-control" id="inputDeadline" name="Deadline" value="@Model.Task.Deadline.ToString("yyyy-MM-dd")">
-        }
-        else
-        {
-            <div style="color: @textColor">
-                @Model.Task.Deadline.ToString("dd MMM yyyy")
-            </div>
-        }
-
-    </div>
-    <div id="submit" class="col my-3 col-lg-2">
-        @if (@Model.IsEditing)
-        {
+        </div>
+        <div id="submit" class="col my-3 col-lg-2">
             <input class="btn" type="submit" value="&#10060;" asp-page-handler="SetEditing" />
             <input class="btn" type="submit" value="&#x2714;" asp-page-handler="TaskEditFinished" />
             <input type="hidden" name="taskId" value="@Model.Task.Id" />
-        }
-        else
-        {
+        </div>
+    }
+    else
+    {
+        <div id="task" class="col my-3 col">
+            <div class="border-end pe-3">@Model.Task.Text</div>
+        </div>
+        <div id="deadline" class="col my-3 mx-3 col-lg-auto">
+            <div class="text-secondary">Deadline:</div>
+            <div style="color: @textColor">
+                @Model.Task.Deadline.ToString("dd MMM yyyy")
+            </div>
+        </div>
+        <div id="submit" class="col my-3 col-lg-2">
+            @if(Model.Task.Finished == 1)
+            {
+                <input class="btn disabled" type="submit" value="&#x270E;" disabled asp-page-handler="SetEditing" />
+                <input class="btn disabled" type="submit" value="&#x2714;" disabled asp-page-handler="MarkAsFinished" />
+            } 
+            else 
+            {
             <input class="btn" type="submit" value="&#x270E;" asp-page-handler="SetEditing" />
-            <input class="btn" type="submit" value="&#x2714;" asp-page-handler="MarkTaskAsFinished" />
+            <input class="btn" type="submit" value="&#x2714;" asp-page-handler="MarkAsFinished" />
             <input type="hidden" name="taskId" value="@Model.Task.Id" />
-        }
-        
-    </div>
+            }
+        </div>
+    }
+    
 </form>
