@@ -8,7 +8,6 @@ namespace TodoList.Models
         [Key]
         public int Id { get; set; }
         [DisplayName("Task Text")]
-        [StringLength(30, MinimumLength = 3)]
         [Required]
         public string Text { get; set; }
         [Required]
