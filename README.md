@@ -44,7 +44,6 @@ Použijte následující šablony:
 <details>
 <summary>Základní HTML formulář</summary>
 
-Formulář využívá Bootstrap třídy pro stylování a layout, což zahrnuje třídy pro formulářové prvky, tlačítka a kontejnery. Bootstrap komponenty zlepšují vizuální prezentaci a usnadňují responsivní design.
 
   
 ```html
@@ -55,7 +54,6 @@ Formulář využívá Bootstrap třídy pro stylování a layout, což zahrnuje 
 <details>
 <summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\Task.cs`</summary>
   
-Model obsahuje definice vlastností odpovídajících sloupcům v databázi a může zahrnovat metody pro manipulaci s daty.
 
 
 ```csharp
