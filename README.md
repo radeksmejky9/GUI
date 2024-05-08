@@ -36,8 +36,10 @@
   - Project > Manage NuGet Packages
     - Přidání `Microsoft.EntityFrameworkCore`
     - Přidání `Microsoft.EntityFrameworkCore.InMemory`
+- **Zavedení 
 - **Testování spuštění projektu**
   - Ověření funkčnosti základní konfigurace.
+
 ## Tvorba základu aplikace
 Použijte následující šablony:
 
@@ -85,7 +87,7 @@ namespace TodoList.Models
 </details>
 <details>
 
-<summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\MemoryDbContext.cs`</summary>
+<summary>Vytvoření InMemory databáze `TodoList\Models\MemoryDbContext.cs`</summary>
 
 
 
@@ -106,5 +108,18 @@ namespace TodoList.Models
     }
 }
 ```
+
+</details>
+
+<details>
+
+<summary>Propojení InMemory databáze s projektem `TodoList\Models\MemoryDbContext.cs`</summary>
+
+
+```csharp
+//TodoList\Program.cs
+builder.Services.AddDbContext<MemoryDbContext>();
+```
+
 </details>
 
