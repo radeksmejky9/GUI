@@ -7,7 +7,7 @@
 
 ## Příprava
 - **Instalace [Visual Studio 2022](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)**
-  - `.NET 8.0` a `ASP.NET and web development`.
+  - `.NET 8.0` a `ASP.NET and web development`
 - **Tvorba projektu**
   - Typ projektu: `ASP.NET Core Web App (Razor Pages)`
 - **NuGet balíčky**
@@ -25,15 +25,15 @@
 - Složka obsahující všechny Razor Pages
 
 #### TodoList\Pages\Shared\
-- Obsahuje `_Layout.cshtml` pro výpis jednotlivých stránek
+- Obsahuje `_Layout.cshtml`
 
 ### TodoList\Models\
 - Složka pro definice databázových modelů (vytváříme sami)
 
 ### TodoList\wwwroot\
-- Pro statické soubory jako CSS, JS a obrázky
+- Pro statické soubory jako jsou CSS, JS a obrázky
   
-## Počátek vývoje
+## Příprava před tvorbou
 - **Tvorba složky `Models`**
 - **Správa NuGet balíčků**
   - Project > Manage NuGet Packages
@@ -41,18 +41,10 @@
     - Přidání `Microsoft.EntityFrameworkCore.Sqlite`
     - Přidání `Microsoft.EntityFrameworkCore.Tools`
 - **Testování spuštění projektu**
-  - Ověření funkčnosti základní konfigurace.
+  - Ověření funkčnosti základní konfigurace
 
 ## Tvorba základu aplikace
-Použijte následující šablony:
-
-<details>
-<summary>Základní HTML formulář</summary>
-  
-```html
-<!-- Příklad HTML kódu s Bootstrapem -->
-```
-</details>
+Využijte následující bloky kódu:
 
 <details>
 <summary>Tvorba modelu v rámci EntityFramework</summary>
@@ -84,7 +76,7 @@ namespace TodoList.Models
 </details>
 <details>
 
-<summary>Vytvoření Sqlite databáze</summary>
+<summary>Tvorba Sqlite databáze</summary>
 
 
 ```csharp
@@ -106,7 +98,7 @@ public class ToDoContext : DbContext
 
 <details>
 
-<summary>Dependency injection - databáze</summary>
+<summary>Dependency injection databáze</summary>
 
 
 ```csharp
@@ -115,4 +107,13 @@ builder.Services.AddDbContext<ToDoContext>();
 ```
 
 </details>
+Pokud vám vše funguje, můžete se vrhnout na `Úkol 1`
+
+## Úkol 1
+- `TodoList\Index.cshtml`
+- Smažte všechen html obsah
+- Vytvořte si jednoduchý html form s údaji v databázi (Text - text, Deadline - date)
+- Lze využívat i bootstrap prvky 
+
+
 
