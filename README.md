@@ -7,39 +7,39 @@
 
 ## Příprava
 - **Instalace [Visual Studio 2022](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)**
-  - S .NET 8.0 a ASP.NET and web development.
+  - `.NET 8.0` a `ASP.NET and web development`.
 - **Tvorba projektu**
-  - Typ projektu: ASP.NET Core Web App (Razor Pages)
+  - Typ projektu: `ASP.NET Core Web App (Razor Pages)`
 - **NuGet balíčky**
   - `Microsoft.EntityFrameworkCore`
   - `Microsoft.EntityFrameworkCore.Sqlite`
   - `Microsoft.EntityFrameworkCore.Tools`
 
-## Popis řešení
+## Úvod do řešení
 ### TodoList\Program.cs
-- Sestavovací skript pro spuštění webové aplikace.
-- Řešení dependency injection.
-- Přidání NuGet balíčků.
+- Sestavovací skript pro spuštění webové aplikace
+- Řešení dependency injection
+- Přidání NuGet balíčků
 
 ### TodoList\Pages\
-- Složka obsahující všechny Razor Pages.
+- Složka obsahující všechny Razor Pages
 
 #### TodoList\Pages\Shared\
-- Obsahuje `_Layout.cshtml` pro výpis jednotlivých stránek.
+- Obsahuje `_Layout.cshtml` pro výpis jednotlivých stránek
 
 ### TodoList\Models\
-- Složka pro definice databázových modelů (vytváříme sami).
+- Složka pro definice databázových modelů (vytváříme sami)
 
 ### TodoList\wwwroot\
-- Pro statické soubory jako CSS, JS a obrázky.
-
-## Začátek vývoje ve Visual Studio 2022
+- Pro statické soubory jako CSS, JS a obrázky
+  
+## Počátek vývoje
 - **Tvorba složky `Models`**
 - **Správa NuGet balíčků**
   - Project > Manage NuGet Packages
     - Přidání `Microsoft.EntityFrameworkCore`
-    - Přidání `Microsoft.EntityFrameworkCore.InMemory`
-- **Zavedení 
+    - Přidání `Microsoft.EntityFrameworkCore.Sqlite`
+    - Přidání `Microsoft.EntityFrameworkCore.Tools`
 - **Testování spuštění projektu**
   - Ověření funkčnosti základní konfigurace.
 
@@ -48,8 +48,6 @@ Použijte následující šablony:
 
 <details>
 <summary>Základní HTML formulář</summary>
-
-
   
 ```html
 <!-- Příklad HTML kódu s Bootstrapem -->
@@ -59,7 +57,6 @@ Použijte následující šablony:
 <details>
 <summary>Tvorba modelu v rámci EntityFramework</summary>
   
-
 
 ```csharp
 //TodoList\Models\ToDoElement.cs
@@ -78,10 +75,11 @@ namespace TodoList.Models
         [Required]
         public DateTime Deadline { get; set; }
         [Required]
-        [DefaultValue(false)]
-        public bool Finished { get; set; }
+        [DefaultValue(0)]
+        public byte Finished { get; set; }
     }
 }
+
 ```
 </details>
 <details>
@@ -89,16 +87,15 @@ namespace TodoList.Models
 <summary>Vytvoření Sqlite databáze</summary>
 
 
-
 ```csharp
-//TodoList\Models\TodoContext.cs
+//TodoList\Models\ToDoContext.cs
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using TodoList.Models;
 
-public class TodoContext : DbContext
+public class ToDoContext : DbContext
 {
-    public DbSet<ToDoElement> TodoElements { set; get; }
+    public DbSet<ToDoElement> ToDoElements { set; get; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseSqlite(@"Data Source=..\Demo.db");
@@ -114,7 +111,7 @@ public class TodoContext : DbContext
 
 ```csharp
 //TodoList\Program.cs
-builder.Services.AddDbContext<TodoContext>(options => options.UseSqlite(@"Data Source=..\Demo.db"));
+builder.Services.AddDbContext<ToDoContext>();
 ```
 
 </details>
