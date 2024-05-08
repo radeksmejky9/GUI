@@ -10,6 +10,7 @@
   - `.NET 8.0` a `ASP.NET and web development`
 - **Tvorba projektu**
   - Typ projektu: `ASP.NET Core Web App (Razor Pages)`
+  - Název projektu ideálně TodoList
 - **NuGet balíčky**
   - `Microsoft.EntityFrameworkCore`
   - `Microsoft.EntityFrameworkCore.Sqlite`
@@ -19,7 +20,6 @@
 ### TodoList\Program.cs
 - Sestavovací skript pro spuštění webové aplikace
 - Řešení dependency injection
-- Přidání NuGet balíčků
 
 ### TodoList\Pages\
 - Složka obsahující všechny Razor Pages
@@ -48,7 +48,8 @@ Pokud vám vše funguje, můžete se vrhnout na Úkol 1
 ## Úkol 1
 - `TodoList\Index.cshtml`
 - Smažte všechen html obsah
-- Vytvořte si jednoduchý html form s údaji v databázi (Text - text, Deadline - date)
+- Vytvořte si jednoduchý html form s inputy pro vkládání do databáze (Text - text, Deadline - date)
+- **POZOR** atribut name="" se musí shodovat s databazí, takže Text a Deadline
 - Lze využívat bootstrap prvky v základu
 
 ## Tvorba základu aplikace
@@ -123,9 +124,37 @@ Add-migration DB
 Update-database
 ```
 
+<details>
+
 ## Úkol 2
-- Propojení HTML formu a 
+- Tvorba jednoduché tabulky, využijte <table class="table"> (Deadline, Text, Tlačítka pro úpravu a splnění)
 
+## Napojení na databázi
+```csharp
+//TodoList\Models\IndexModel.cshtml.cs
+public bool DisplayAddTask { get; private set; } = false;
+public List<_TaskPartialModel> taskItems = new List<_TaskPartialModel>();
+[BindProperty]
+public TaskItemModel NewTaskItem { get; set; }
+private readonly TaskContext _taskContext;
 
+public IActionResult OnPostAddElement()
+ {
+     _taskContext.TaskItems.Add(NewTaskItem);
+     _taskContext.SaveChanges();
+     return RedirectToPage();
+ }
+
+ public IndexModel(TaskContext taskContext)
+ {
+     _taskContext = taskContext;
+     var items = _taskContext.TaskItems.ToList();
+     taskItems.AddRange(items);
+ }
+```
+</details>
+
+## Úkol 3
+- Obarvení textu Deadline, podle počtu zbývajících dní (doporučujeme použít (Datetime.Now-Deadline).Days)
 
 
