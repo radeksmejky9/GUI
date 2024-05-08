@@ -53,8 +53,6 @@ Formulář využívá Bootstrap třídy pro stylování a layout, což zahrnuje 
 </details>
 
 <details>
-
-<details>
 <summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\Task.cs`</summary>
   
 Model obsahuje definice vlastností odpovídajících sloupcům v databázi a může zahrnovat metody pro manipulaci s daty.
@@ -86,6 +84,7 @@ namespace TodoList.Models
 }
 
 ```
+</details>
 </details>
 
 <summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\MemoryDbContext.cs`</summary>
