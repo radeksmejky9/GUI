@@ -2,6 +2,7 @@
 ## Lekce: ASP.NET + Razor Pages
 
 [Prezentace](https://tinyurl.com/KI-GUI-PRE)
+[README_EN](https://github.com/radeksmejky9/GUI/edit/main/README_EN.md)
 
 ## Příprava
 - **Instalace [Visual Studio 2022](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)**
