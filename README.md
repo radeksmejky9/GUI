@@ -10,7 +10,8 @@
   - Typ projektu: ASP.NET Core Web App (Razor Pages)
 - **NuGet balíčky**
   - `Microsoft.EntityFrameworkCore`
-  - `Microsoft.EntityFrameworkCore.InMemory`
+  - `Microsoft.EntityFrameworkCore.Sqlite`
+  - `Microsoft.EntityFrameworkCore.Tools`
 
 ## Popis řešení
 ### TodoList\Program.cs
@@ -54,58 +55,51 @@ Použijte následující šablony:
 </details>
 
 <details>
-<summary>Tvorba modelu v rámci EntityFramework `TodoList\Models\Task.cs`</summary>
+<summary>Tvorba modelu v rámci EntityFramework</summary>
   
 
 
 ```csharp
-//TodoList\Models\Task.cs
+//TodoList\Models\ToDoElement.cs
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace TodoList.Models
 {
-    public class Task
+    public class ToDoElement
     {
         [Key]
         public int Id { get; set; }
-        [DisplayName("Task")]
+        [DisplayName("Task Text")]
         [Required]
-        public string TaskText { get; set; }
-        [Required]
-        [DefaultValueAttribute(1)]
-        public double TaskPriority { get; set; }
+        public string Text { get; set; }
         [Required]
         public DateTime Deadline { get; set; }
         [Required]
-        [DefaultValueAttribute(false)]
+        [DefaultValue(false)]
         public bool Finished { get; set; }
     }
 }
-
 ```
 </details>
 <details>
 
-<summary>Vytvoření InMemory databáze `TodoList\Models\MemoryDbContext.cs`</summary>
+<summary>Vytvoření Sqlite databáze</summary>
 
 
 
 ```csharp
-//TodoList\Models\MemoryDbContext.cs
+//TodoList\Models\TodoContext.cs
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using TodoList.Models;
 
-namespace TodoList.Models
+public class TodoContext : DbContext
 {
-    public class MemoryDbContext : DbContext
-    {
-        public DbSet<Task> Tasks { get; set; }
+    public DbSet<ToDoElement> TodoElements { set; get; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseInMemoryDatabase("MemoryDb");
-        }
-    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder.UseSqlite(@"Data Source=..\Demo.db");
 }
 ```
 
@@ -113,12 +107,12 @@ namespace TodoList.Models
 
 <details>
 
-<summary>Propojení InMemory databáze s projektem `TodoList\Models\MemoryDbContext.cs`</summary>
+<summary>Dependency injection - databáze</summary>
 
 
 ```csharp
 //TodoList\Program.cs
-builder.Services.AddDbContext<MemoryDbContext>();
+builder.Services.AddDbContext<TodoContext>(options => options.UseSqlite(@"Data Source=..\Demo.db"));
 ```
 
 </details>
