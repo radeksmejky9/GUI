@@ -39,10 +39,11 @@
 - **Testování spuštění projektu**
   - Ověření funkčnosti základní konfigurace.
 ## Tvorba základu aplikace
-- **Tvorba formuláře `Projekt\Pages\Index.cshtml`**
-  - Základní html formulář s pár bootstrap prvky.
-```
-<div class="container text-center">
+<details>
+### **Tvorba formuláře `Projekt\Pages\Index.cshtml`**
+Základní html formulář s pár bootstrap prvky.
+```HTML
+   <div class="container text-center">
     <div class="d-flex justify-content-center align-items-center my-4">
         <h1 class="display-4 px-2">TodoList</h1>
         <form method="post">
@@ -96,14 +97,19 @@
     </form>
 </div>
 ```
-  - Samozřejmě je třeba propojit hmtl a C# pomocí razor dekorátoru
-```
-@page
+</details>
+
+<details>
+Samozřejmě je třeba propojit hmtl a C# pomocí razor dekorátoru
+```C#
+   @page
 @model IndexModel
 @{
   ViewData["Title"] = "TodoList";
 }
 ```
+
+</details>
 
 - **Tvorba modelu v rámci EntityFramework `Projekt\Models\Task.cs`**
 ```
